@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unknown Facts 🌍</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #070b14;
+    color: white;
+    min-height: 100vh;
+}
+
+header {
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    background: rgba(7,11,20,.95);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.logo span {
+    color: #38bdf8;
+}
+
+.menu {
+    color: #8995aa;
+    font-size: 12px;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 20px 35px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 13px;
+    border-radius: 50px;
+    background: rgba(56,189,248,.1);
+    border: 1px solid rgba(56,189,248,.25);
+    color: #38bdf8;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 9vw, 80px);
+    margin-top: 18px;
+    line-height: .95;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg,#38bdf8,#8b5cf6,#f472b6);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #9ca8bd;
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.6;
+}
+
+.container {
+    width: min(92%, 1050px);
+    margin: auto;
+}
+
+.fact-card,
+.quiz-card {
+    max-width: 780px;
+    margin: 25px auto;
+    padding: 42px 30px;
+    text-align: center;
+    border-radius: 25px;
+    background:
+        radial-gradient(circle at top, rgba(56,189,248,.12), transparent 55%),
+        #0d1423;
+    border: 1px solid rgba(255,255,255,.09);
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+
+.fact-icon {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.category {
+    color: #38bdf8;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.fact-card h2 {
+    font-size: 29px;
+    margin: 12px 0;
+}
+
+.fact-card p {
+    color: #a9b2c5;
+    line-height: 1.7;
+    max-width: 620px;
+    margin: auto;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: inherit;
+}
+
+.primary {
+    padding: 13px 20px;
+    border-radius: 11px;
+    color: white;
+    background: linear-gradient(135deg,#2563eb,#7c3aed);
+}
+
+.secondary {
+    padding: 13px 20px;
+    border-radius: 11px;
+    color: white;
+    background: #151e30;
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.share-message {
+    color: #38bdf8;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.counter {
+    text-align: center;
+    margin: 20px 0;
+    color: #76839a;
+    font-size: 12px;
+}
+
+.categories {
+    padding: 65px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.section-title h2 {
+    font-size: 30px;
+}
+
+.section-title p {
+    color: #8995aa;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 12px;
+}
+
+.category-card {
+    padding: 23px 12px;
+    text-align: center;
+    background: #0d1423;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf8;
+}
+
+.category-card div {
+    font-size: 35px;
+}
+
+.category-card h3 {
+    margin-top: 7px;
+    font-size: 15px;
+}
+
+.category-card p {
+    color: #7f8aa0;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.quiz-section {
+    padding: 40px 0 70px;
+}
+
+.quiz-card {
+    background:
+        radial-gradient(circle at top, rgba(124,58,237,.15), transparent 55%),
+        #0d1423;
+}
+
+.quiz-label {
+    color: #a78bfa;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.quiz-card h2 {
+    font-size: 30px;
+    margin: 10px 0 8px;
+}
+
+.quiz-intro {
+    color: #8995aa;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.quiz-progress {
+    height: 6px;
+    background: #182235;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.quiz-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg,#38bdf8,#8b5cf6);
+    transition: .3s;
+}
+
+.question-number {
+    color: #38bdf8;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.question {
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.answers {
+    display: grid;
+    gap: 10px;
+}
+
+.answer {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    color: white;
+    background: #131d30;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 12px;
+    transition: .2s;
+}
+
+.answer:hover {
+    border-color: #38bdf8;
+    background: #17253b;
+}
+
+.answer.correct {
+    background: rgba(34,197,94,.18);
+    border-color: #22c55e;
+}
+
+.answer.wrong {
+    background: rgba(239,68,68,.18);
+    border-color: #ef4444;
+}
+
+.answer:disabled {
+    cursor: default;
+}
+
+.quiz-result {
+    display: none;
+}
+
+.result-icon {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.quiz-result h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.final-score {
+    font-size: 50px;
+    font-weight: 900;
+    margin: 15px 0;
+    background: linear-gradient(90deg,#38bdf8,#a78bfa);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    color: #657188;
+    font-size: 11px;
+}
+
+@media(max-width:700px) {
+    .category-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .fact-card,
+    .quiz-card {
+        padding: 35px 20px;
+    }
+
+    .question {
+        font-size: 19px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Unknown<span>Facts</span> 🌍
+    </div>
+
+    <div class="menu">
+        DISCOVER SOMETHING NEW
+    </div>
+
+</header>
+
+<section class="hero">
+
+    <span class="badge">
+        🌎 FACTS YOU PROBABLY DIDN'T KNOW
+    </span>
+
+    <h1>
+        Discover the <span>Unknown.</span>
+    </h1>
+
+    <p>
+        Strange, surprising and fascinating facts about our world,
+        nature, science, animals, history and beyond.
+    </p>
+
+</section>
+
+<main class="container">
+
+    <div class="fact-card">
+
+        <div class="fact-icon" id="factIcon">
+            🌊
+        </div>
+
+        <div class="category" id="factCategory">
+            OCEANS
+        </div>
+
+        <h2 id="factTitle">
+            Loading fact...
+        </h2>
+
+        <p id="factText">
+            Discovering something interesting...
+        </p>
+
+        <div class="buttons">
+
+            <button class="primary" onclick="randomFact()">
+                🎲 Random Fact
+            </button>
+
+            <button class="secondary" onclick="shareFact()">
+                📤 Share
+            </button>
+
+        </div>
+
+        <div class="share-message" id="message"></div>
+
+    </div>
+
+    <div class="counter">
+        Fact <span id="factNumber">1</span>
+        of
+        <span id="totalFacts">1</span>
+    </div>
+
+    <section class="categories">
+
+        <div class="section-title">
+
+            <h2>
+                Explore Topics
+            </h2>
+
+            <p>
+                Choose something and discover a surprising fact.
+            </p>
+
+        </div>
+
+        <div class="category-grid">
+
+            <div class="category-card"
+                 onclick="categoryFact('Earth')">
+
+                <div>🌍</div>
+
+                <h3>Earth</h3>
+
+                <p>Our amazing planet</p>
+
+            </div>
+
+            <div class="category-card"
+                 onclick="categoryFact('Animals')">
+
+                <div>🐘</div>
+
+                <h3>Animals</h3>
+
+                <p>Wild and wonderful</p>
+
+            </div>
+
+            <div class="category-card"
+                 onclick="categoryFact('Science')">
+
+                <div>🧪</div>
+
+                <h3>Science</h3>
+
+                <p>Mind-blowing discoveries</p>
+
+            </div>
+
+            <div class="category-card"
+                 onclick="categoryFact('History')">
+
+                <div>🏛️</div>
+
+                <h3>History</h3>
+
+                <p>Things from the past</p>
+
+            </div>
+
+            <div class="category-card"
+                 onclick="categoryFact('Ocean')">
+
+                <div>🌊</div>
+
+                <h3>Ocean</h3>
+
+                <p>The deep blue</p>
+
+            </div>
+
+            <div class="category-card"
+                 onclick="categoryFact('Space')">
+
+                <div>🚀</div>
+
+                <h3>Space</h3>
+
+                <p>Beyond Earth</p>
+
+            </div>
+
+            <div class="category-card"
+                 onclick="categoryFact('Human')">
+
+                <div>🧠</div>
+
+                <h3>Human</h3>
+
+                <p>Your body and mind</p>
+
+            </div>
+
+            <div class="category-card"
+                 onclick="categoryFact('Random')">
+
+                <div>✨</div>
+
+                <h3>Random</h3>
+
+                <p>Anything goes</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="quiz-section" id="quiz">
+
+        <div class="quiz-card">
+
+            <div id="quizGame">
+
+                <div class="quiz-label">
+                    🧠 TEST YOUR KNOWLEDGE
+                </div>
+
+                <h2>
+                    Unknown Facts Quiz
+                </h2>
+
+                <p class="quiz-intro">
+                    How many of these surprising facts do you know?
+                </p>
+
+                <div class="quiz-progress">
+
+                    <div
+                        class="quiz-progress-bar"
+                        id="quizProgress">
+                    </div>
+
+                </div>
+
+                <div
+                    class="question-number"
+                    id="questionNumber">
+                    Question 1
+                </div>
+
+                <div
+                    class="question"
+                    id="question">
+                    Loading question...
+                </div>
+
+                <div
+                    class="answers"
+                    id="answers">
+                </div>
+
+            </div>
+
+            <div
+                class="quiz-result"
+                id="quizResult">
+
+                <div class="result-icon">
+                    🏆
+                </div>
+
+                <h2>
+                    Quiz Complete!
+                </h2>
+
+                <div
+                    class="final-score"
+                    id="finalScore">
+                    0/5
+                </div>
+
+                <p class="quiz-intro" id="resultText">
+                    Nice work!
+                </p>
+
+                <button
+                    class="primary"
+                    onclick="startQuiz()">
+
+                    🔄 Play Again
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+
+    UnknownFacts 🌍
+
+    <br><br>
+
+    Discover something new every day.
+
+</footer>
+
+<script>
+
+const facts = [
+
+    {
+        category:"Earth",
+        icon:"🌍",
+        title:"Earth isn't a perfect sphere.",
+        text:"Because Earth rotates, it bulges slightly around the equator and is a little flattened at the poles."
+    },
+
+    {
+        category:"Animals",
+        icon:"🐙",
+        title:"Octopuses have three hearts.",
+        text:"Two hearts pump blood toward the gills, while another pumps blood around the rest of the body."
+    },
+
+    {
+        category:"Science",
+        icon:"⚡",
+        title:"Lightning can be incredibly hot.",
+        text:"The air inside a lightning channel can briefly reach temperatures several times hotter than the surface of the Sun."
+    },
+
+    {
+        category:"Ocean",
+        icon:"🌊",
+        title:"Most of Earth's ocean is unexplored.",
+        text:"Large parts of the deep ocean remain difficult to study because of extreme pressure, darkness and distance."
+    },
+
+    {
+        category:"Space",
+        icon:"🌌",
+        title:"A day on Venus is extremely long.",
+        text:"Venus rotates so slowly that one rotation takes longer than its trip around the Sun."
+    },
+
+    {
+        category:"Animals",
+        icon:"🦈",
+        title:"Sharks are older than trees.",
+        text:"Shark ancestors existed hundreds of millions of years ago, long before the first modern forests."
+    },
+
+    {
+        category:"Human",
+        icon:"🧠",
+        title:"Your brain uses a lot of energy.",
+        text:"Although the brain makes up only a small fraction of body mass, it uses a significant share of the body's energy."
+    },
+
+    {
+        category:"History",
+        icon:"🏛️",
+        title:"The Great Wall is a collection of structures.",
+        text:"The Great Wall of China is not one single uninterrupted wall. It consists of many walls, fortifications and related structures built over different periods."
+    },
+
+    {
+        category:"Earth",
+        icon:"🏔️",
+        title:"Mountains can grow.",
+        text:"Tectonic forces can push Earth's crust upward, causing mountain ranges to rise while erosion works to wear them down."
+    },
+
+    {
+        category:"Science",
+        icon:"🧊",
+        title:"Water expands when it freezes.",
+        text:"Unlike many substances, water becomes less dense as it freezes, which is why ice floats."
+    },
+
+    {
+        category:"Ocean",
+        icon:"🐋",
+        title:"Blue whales are enormous.",
+        text:"The blue whale is the largest animal known to have ever lived."
+    },
+
+    {
+        category:"Space",
+        icon:"☀️",
+        title:"The Sun contains most of the Solar System's mass.",
+        text:"The Sun contains more than 99 percent of the mass of the Solar System."
+    },
+
+    {
+        category:"Animals",
+        icon:"🦋",
+        title:"Butterflies taste with their feet.",
+        text:"Butterflies have taste receptors on their feet that help them identify suitable plants."
+    },
+
+    {
+        category:"Human",
+        icon:"👁️",
+        title:"Your eyes are constantly making tiny movements.",
+        text:"Even when you stare at something, your eyes make tiny involuntary movements that help keep visual information fresh."
+    },
+
+    {
+        category:"Earth",
+        icon:"🌋",
+        title:"Volcanoes help create new land.",
+        text:"Lava from volcanic eruptions can cool and solidify, adding new rock to Earth's surface."
+    },
+
+    {
+        category:"Science",
+        icon:"🔬",
+        title:"There are microorganisms almost everywhere.",
+        text:"Microbes live in environments ranging from ocean depths to hot springs and even inside other living organisms."
+    },
+
+    {
+        category:"History",
+        icon:"📜",
+        title:"Ancient writing appeared thousands of years ago.",
+        text:"Some of the earliest known writing systems developed in ancient civilizations more than 5,000 years ago."
+    },
+
+    {
+        category:"Space",
+        icon:"🪐",
+        title:"Jupiter is the largest planet in our Solar System.",
+        text:"Jupiter is a gas giant and is much larger than Earth."
+    },
+
+    {
+        category:"Ocean",
+        icon:"🦑",
+        title:"Giant squid live deep in the ocean.",
+        text:"Giant squid are deep-sea animals that can grow to impressive sizes and are rarely seen alive."
+    },
+
+    {
+        category:"Random",
+        icon:"🍯",
+        title:"Honey can last a very long time.",
+        text:"Because of its low water content and chemical properties, properly stored honey can remain preserved for extremely long periods."
+    }
+
+];
+
+const quizQuestions = [
+
+    {
+        question:"How many hearts does an octopus have?",
+        answers:["One","Two","Three","Four"],
+        correct:2
+    },
+
+    {
+        question:"Which planet is the largest in our Solar System?",
+        answers:["Earth","Jupiter","Saturn","Neptune"],
+        correct:1
+    },
+
+    {
+        question:"What happens to water when it freezes?",
+        answers:[
+            "It becomes denser",
+            "It becomes less dense",
+            "It disappears",
+            "It turns into gas"
+        ],
+        correct:1
+    },
+
+    {
+        question:"Which animal is known to have taste receptors on its feet?",
+        answers:[
+            "Butterfly",
+            "Elephant",
+            "Dolphin",
+            "Penguin"
+        ],
+        correct:0
+    },
+
+    {
+        question:"What is the largest known animal?",
+        answers:[
+            "African elephant",
+            "Blue whale",
+            "Giraffe",
+            "Giant squid"
+        ],
+        correct:1
+    },
+
+    {
+        question:"Which planet has a very slow rotation?",
+        answers:[
+            "Mars",
+            "Venus",
+            "Jupiter",
+            "Mercury"
+        ],
+        correct:1
+    },
+
+    {
+        question:"What force keeps planets in orbit around the Sun?",
+        answers:[
+            "Magnetism",
+            "Wind",
+            "Gravity",
+            "Electricity"
+        ],
+        correct:2
+    },
+
+    {
+        question:"Where do many new stars form?",
+        answers:[
+            "Nebulae",
+            "Oceans",
+            "Black holes",
+            "Asteroids"
+        ],
+        correct:0
+    },
+
+    {
+        question:"Which animal has three hearts?",
+        answers:[
+            "Shark",
+            "Octopus",
+            "Whale",
+            "Penguin"
+        ],
+        correct:1
+    },
+
+    {
+        question:"What is Earth's natural satellite?",
+        answers:[
+            "Mars",
+            "The Moon",
+            "Venus",
+            "The Sun"
+        ],
+        correct:1
+    },
+
+    {
+        question:"What is lightning?",
+        answers:[
+            "A type of cloud",
+            "An electrical discharge",
+            "Frozen rain",
+            "A solar flare"
+        ],
+        correct:1
+    },
+
+    {
+        question:"Which ocean is the largest?",
+        answers:[
+            "Atlantic Ocean",
+            "Indian Ocean",
+            "Pacific Ocean",
+            "Arctic Ocean"
+        ],
+        correct:2
+    }
+
+];
+
+let currentFact = 0;
+
+document.getElementById("totalFacts").textContent = facts.length;
+
+function showFact(index) {
+
+    const fact = facts[index];
+
+    document.getElementById("factIcon").textContent =
+        fact.icon;
+
+    document.getElementById("factCategory").textContent =
+        fact.category;
+
+    document.getElementById("factTitle").textContent =
+        fact.title;
+
+    document.getElementById("factText").textContent =
+        fact.text;
+
+    document.getElementById("factNumber").textContent =
+        index + 1;
+
+    document.getElementById("message").textContent = "";
+
+}
+
+function randomFact() {
+
+    let newIndex;
+
+    do {
+
+        newIndex =
+            Math.floor(Math.random() * facts.length);
+
+    } while (
+        newIndex === currentFact &&
+        facts.length > 1
+    );
+
+    currentFact = newIndex;
+
+    showFact(currentFact);
+
+}
+
+function categoryFact(category) {
+
+    let matching =
+        facts.filter(function(fact) {
+
+            if (category === "Random") {
+                return true;
+            }
+
+            return fact.category === category;
+
+        });
+
+    if (matching.length === 0) {
+
+        randomFact();
+
+        return;
+
+    }
+
+    const fact =
+        matching[
+            Math.floor(
+                Math.random() * matching.length
+            )
+        ];
+
+    currentFact =
+        facts.indexOf(fact);
+
+    showFact(currentFact);
+
+    window.scrollTo({
+        top: 100,
+        behavior: "smooth"
+    });
+
+}
+
+async function shareFact() {
+
+    const fact = facts[currentFact];
+
+    const text =
+   
